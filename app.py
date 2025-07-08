@@ -42,7 +42,7 @@ login_manager.login_message = 'Please log in to access this page.'
 
 @login_manager.user_loader
 def load_user(user_id):
-    from models import User
+    from db_models import User
     return User.query.get(int(user_id))
 
 # Food menu data with images
@@ -137,7 +137,7 @@ def register():
                 return render_template('register.html')
             
             # Check if user already exists
-            from models import User
+            from db_models import User
             if User.query.filter_by(username=username).first():
                 flash('Username already exists.', 'error')
                 return render_template('register.html')
@@ -189,7 +189,7 @@ def login():
                 return render_template('login.html')
             
             # Find user by username or email
-            from models import User
+            from db_models import User
             user = User.query.filter(
                 (User.username == username_or_email) | 
                 (User.email == username_or_email.lower())
@@ -264,7 +264,7 @@ def place_order():
                 })
         
         # Create new order
-        from models import Order, OrderItem
+        from db_models import Order, OrderItem
         
         order = Order(
             user_id=current_user.id,
@@ -302,7 +302,7 @@ def place_order():
 def orders():
     """Display order history"""
     try:
-        from models import Order, OrderItem
+        from db_models import Order, OrderItem
         
         # Get user's orders with their items
         orders = db.session.query(Order).filter_by(user_id=current_user.id).order_by(Order.order_date.desc()).all()
@@ -360,7 +360,7 @@ def chat():
 # Initialize database
 with app.app_context():
     # Import models to ensure tables are created
-    from models import User, Order, OrderItem
+    from db_models import User, Order, OrderItem
     db.create_all()
 
 if __name__ == '__main__':
