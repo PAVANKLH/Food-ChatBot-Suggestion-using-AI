@@ -78,9 +78,9 @@
 
     <!-- AI Chatbot Button -->
     {% if current_user.is_authenticated %}
-    <div class="chatbot-toggle position-fixed" style="bottom: 30px; right: 30px; z-index: 1050;">
-        <button class="btn btn-warning rounded-circle p-3 shadow-lg" id="chatbotToggle" data-bs-toggle="modal" data-bs-target="#chatbotModal">
-            <i class="fas fa-robot fa-lg"></i>
+    <div class="chatbot-toggle">
+        <button class="btn btn-warning rounded-circle shadow-lg" id="chatbotToggle" data-bs-toggle="modal" data-bs-target="#chatbotModal" title="Ask Chef Pavan for food recommendations!">
+            <i class="fas fa-robot"></i>
         </button>
     </div>
     {% endif %}
@@ -112,7 +112,7 @@
                 <div class="modal-header border-bottom border-warning">
                     <h5 class="modal-title text-warning" id="chatbotModalLabel">
                         <i class="fas fa-robot me-2"></i>
-                        Chef's AI Assistant
+                        Chef Pavan's AI Assistant
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -125,7 +125,9 @@
                                 </div>
                                 <div class="message-content">
                                     <div class="bg-secondary bg-opacity-50 rounded p-3">
-                                        <p class="mb-0">Hello! I'm your personal food assistant. I can help you find the perfect dish based on your preferences, dietary needs, or mood. What are you in the mood for today?</p>
+                                        <p class="mb-0"><strong>Welcome to Pavan's Bawarchi!</strong> 🍛<br>
+                                        I'm Chef Pavan's AI assistant. How are you feeling today? Happy, stressed, celebrating, or just hungry? 
+                                        Tell me your mood and I'll recommend the perfect Hyderabadi dish for you!</p>
                                     </div>
                                 </div>
                             </div>
