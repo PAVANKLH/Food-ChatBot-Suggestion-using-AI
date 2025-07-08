@@ -125,5 +125,34 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Debug Script for buttons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Landing page loaded');
+            
+            // Test button clicks
+            const getStartedBtn = document.querySelector('a[href="/register"]');
+            const signInBtn = document.querySelector('a[href="/login"]');
+            
+            if (getStartedBtn) {
+                console.log('Get Started button found');
+                getStartedBtn.addEventListener('click', function(e) {
+                    console.log('Get Started button clicked');
+                });
+            } else {
+                console.error('Get Started button not found');
+            }
+            
+            if (signInBtn) {
+                console.log('Sign In button found');
+                signInBtn.addEventListener('click', function(e) {
+                    console.log('Sign In button clicked');
+                });
+            } else {
+                console.error('Sign In button not found');
+            }
+        });
+    </script>
 </body>
 </html>
