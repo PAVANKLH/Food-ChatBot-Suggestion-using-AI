@@ -2,7 +2,6 @@ import logging
 import json
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -11,13 +10,14 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 import secrets
 import string
 
+from extensions import db
+from db_models import User, Order, OrderItem
+
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
 class Base(DeclarativeBase):
     pass
-
-db = SQLAlchemy(model_class=Base)
 
 # Create the app
 app = Flask(__name__)
@@ -31,7 +31,6 @@ app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
     "pool_pre_ping": True,
 }
 
-# Initialize the app with the extension
 db.init_app(app)
 
 # Initialize Flask-Login
