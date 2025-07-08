@@ -255,35 +255,71 @@ body {
 /* Chatbot Styles */
 .chatbot-toggle {
     animation: pulse 2s infinite;
-    width: 70px !important;
-    height: 70px !important;
+    width: 80px !important;
+    height: 80px !important;
     position: fixed !important;
     bottom: 30px !important;
     right: 30px !important;
     z-index: 1060 !important;
+    filter: drop-shadow(0 0 20px rgba(255, 193, 7, 0.8));
 }
 
 .chatbot-toggle .btn {
-    width: 70px !important;
-    height: 70px !important;
+    width: 80px !important;
+    height: 80px !important;
     border-radius: 50% !important;
-    font-size: 1.5rem !important;
-    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4) !important;
-    border: 3px solid rgba(255, 193, 7, 0.8) !important;
+    font-size: 2rem !important;
+    box-shadow: 0 12px 35px rgba(255, 193, 7, 0.6) !important;
+    border: 4px solid rgba(255, 193, 7, 1) !important;
+    background: linear-gradient(135deg, #ffc107 0%, #ffcd39 100%) !important;
+    color: #000 !important;
+    position: relative;
+}
+
+.chatbot-toggle .btn::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ffc107, #ff6b35, #ffc107);
+    z-index: -1;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    0%, 100% { 
+        opacity: 0.7; 
+        text-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+    }
+    50% { 
+        opacity: 1; 
+        text-shadow: 0 0 20px rgba(255, 193, 7, 1), 0 0 30px rgba(255, 193, 7, 0.8);
+    }
 }
 
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.9);
+        filter: drop-shadow(0 0 20px rgba(255, 193, 7, 0.8));
     }
-    70% {
-        transform: scale(1.1);
-        box-shadow: 0 0 0 15px rgba(255, 193, 7, 0);
+    50% {
+        transform: scale(1.15);
+        box-shadow: 0 0 0 20px rgba(255, 193, 7, 0);
+        filter: drop-shadow(0 0 35px rgba(255, 193, 7, 1));
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.9);
+        filter: drop-shadow(0 0 20px rgba(255, 193, 7, 0.8));
     }
 }
 

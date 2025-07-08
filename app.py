@@ -48,51 +48,51 @@ def load_user(user_id):
 # Food menu data with images
 MENU_ITEMS = [
     # Hyderabadi Biryanis
-    {"id": 1, "name": "Hyderabadi Chicken Biryani", "description": "Authentic Hyderabadi dum biryani with tender chicken and aromatic basmati rice", "price": 18.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1563379091339-03246962d51d?w=400&h=300&fit=crop"},
-    {"id": 2, "name": "Mutton Biryani", "description": "Premium mutton pieces cooked with fragrant spices and saffron rice", "price": 22.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=300&fit=crop"},
-    {"id": 3, "name": "Hyderabadi Vegetable Biryani", "description": "Mixed vegetables layered with aromatic basmati rice and dum cooked", "price": 15.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop"},
-    {"id": 4, "name": "Fish Biryani", "description": "Fresh fish marinated in spices and cooked with fragrant rice", "price": 19.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop"},
-    {"id": 5, "name": "Prawn Biryani", "description": "Succulent prawns with aromatic spices and basmati rice", "price": 21.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=400&h=300&fit=crop"},
+    {"id": 1, "name": "Hyderabadi Chicken Biryani", "description": "Authentic Hyderabadi dum biryani with tender chicken and aromatic basmati rice", "price": 18.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1563379091339-03246962d51d?w=400&h=300&fit=crop&crop=center"},
+    {"id": 2, "name": "Mutton Biryani", "description": "Premium mutton pieces cooked with fragrant spices and saffron rice", "price": 22.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop&crop=center"},
+    {"id": 3, "name": "Hyderabadi Vegetable Biryani", "description": "Mixed vegetables layered with aromatic basmati rice and dum cooked", "price": 15.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop&crop=center"},
+    {"id": 4, "name": "Fish Biryani", "description": "Fresh fish marinated in spices and cooked with fragrant rice", "price": 19.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&h=300&fit=crop&crop=center"},
+    {"id": 5, "name": "Prawn Biryani", "description": "Succulent prawns with aromatic spices and basmati rice", "price": 21.99, "category": "Biryani", "image": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=400&h=300&fit=crop&crop=center"},
 
     # Hyderabadi Non-Veg Specials
-    {"id": 6, "name": "Mutton Marag", "description": "Traditional Hyderabadi mutton curry with rich, flavorful gravy", "price": 20.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=300&fit=crop"},
-    {"id": 7, "name": "Chicken Haleem", "description": "Slow-cooked lentils with tender chicken, a Hyderabadi favorite", "price": 16.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop"},
-    {"id": 8, "name": "Hyderabadi Chicken Korma", "description": "Creamy chicken curry with cashews and aromatic spices", "price": 17.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1574653525780-3c7d6d8e4e07?w=400&h=300&fit=crop"},
-    {"id": 9, "name": "Keema Kaleji", "description": "Spiced minced mutton with liver, cooked Hyderabadi style", "price": 18.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop"},
-    {"id": 10, "name": "Chicken Tikka Masala", "description": "Tandoor grilled chicken in rich tomato-based curry", "price": 16.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&h=300&fit=crop"},
+    {"id": 6, "name": "Mutton Marag", "description": "Traditional Hyderabadi mutton curry with rich, flavorful gravy", "price": 20.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=300&fit=crop&crop=center"},
+    {"id": 7, "name": "Chicken Haleem", "description": "Slow-cooked lentils with tender chicken, a Hyderabadi favorite", "price": 16.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center"},
+    {"id": 8, "name": "Hyderabadi Chicken Korma", "description": "Creamy chicken curry with cashews and aromatic spices", "price": 17.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=400&h=300&fit=crop&crop=center"},
+    {"id": 9, "name": "Keema Kaleji", "description": "Spiced minced mutton with liver, cooked Hyderabadi style", "price": 18.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1506280754576-f6fa8a873550?w=400&h=300&fit=crop&crop=center"},
+    {"id": 10, "name": "Chicken Tikka Masala", "description": "Tandoor grilled chicken in rich tomato-based curry", "price": 16.99, "category": "Non-Veg", "image": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&h=300&fit=crop&crop=center"},
 
     # Kebabs & Tandoor
-    {"id": 11, "name": "Seekh Kebab", "description": "Spiced minced mutton grilled on skewers", "price": 14.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&h=300&fit=crop"},
-    {"id": 12, "name": "Chicken Tikka", "description": "Marinated chicken chunks grilled in tandoor", "price": 15.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=400&h=300&fit=crop"},
-    {"id": 13, "name": "Shammi Kebab", "description": "Soft, melt-in-mouth mutton patties with spices", "price": 13.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"},
-    {"id": 14, "name": "Boti Kebab", "description": "Tender mutton pieces marinated and grilled to perfection", "price": 17.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop"},
-    {"id": 15, "name": "Fish Tikka", "description": "Fresh fish marinated in tandoori spices and grilled", "price": 16.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop"},
+    {"id": 11, "name": "Seekh Kebab", "description": "Spiced minced mutton grilled on skewers", "price": 14.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&h=300&fit=crop&crop=center"},
+    {"id": 12, "name": "Chicken Tikka", "description": "Marinated chicken chunks grilled in tandoor", "price": 15.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=400&h=300&fit=crop&crop=center"},
+    {"id": 13, "name": "Shammi Kebab", "description": "Soft, melt-in-mouth mutton patties with spices", "price": 13.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1628294895950-9805252327bc?w=400&h=300&fit=crop&crop=center"},
+    {"id": 14, "name": "Boti Kebab", "description": "Tender mutton pieces marinated and grilled to perfection", "price": 17.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop&crop=center"},
+    {"id": 15, "name": "Fish Tikka", "description": "Fresh fish marinated in tandoori spices and grilled", "price": 16.99, "category": "Kebabs", "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop&crop=center"},
 
     # Vegetarian Delights
-    {"id": 16, "name": "Paneer Butter Masala", "description": "Soft cottage cheese in rich tomato gravy", "price": 13.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop"},
-    {"id": 17, "name": "Dal Hyderabadi", "description": "Traditional lentil curry with aromatic tempering", "price": 9.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop"},
-    {"id": 18, "name": "Bagara Baingan", "description": "Hyderabadi style stuffed eggplant curry", "price": 12.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop"},
-    {"id": 19, "name": "Aloo Gosht Style Aloo", "description": "Spiced potatoes cooked in rich gravy", "price": 10.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop"},
-    {"id": 20, "name": "Mixed Vegetable Curry", "description": "Seasonal vegetables in aromatic Hyderabadi spices", "price": 11.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400&h=300&fit=crop"},
+    {"id": 16, "name": "Paneer Butter Masala", "description": "Soft cottage cheese in rich tomato gravy", "price": 13.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop&crop=center"},
+    {"id": 17, "name": "Dal Hyderabadi", "description": "Traditional lentil curry with aromatic tempering", "price": 9.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop&crop=center"},
+    {"id": 18, "name": "Bagara Baingan", "description": "Hyderabadi style stuffed eggplant curry", "price": 12.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?w=400&h=300&fit=crop&crop=center"},
+    {"id": 19, "name": "Aloo Gosht Style Aloo", "description": "Spiced potatoes cooked in rich gravy", "price": 10.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=400&h=300&fit=crop&crop=center"},
+    {"id": 20, "name": "Mixed Vegetable Curry", "description": "Seasonal vegetables in aromatic Hyderabadi spices", "price": 11.99, "category": "Vegetarian", "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400&h=300&fit=crop&crop=center"},
 
     # Rice & Breads
-    {"id": 21, "name": "Hyderabadi Pulao", "description": "Fragrant rice cooked with whole spices and ghee", "price": 8.99, "category": "Rice", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop"},
-    {"id": 22, "name": "Roomali Roti", "description": "Paper-thin handkerchief bread, soft and delicate", "price": 3.99, "category": "Breads", "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop"},
-    {"id": 23, "name": "Hyderabadi Naan", "description": "Soft leavened bread baked in tandoor", "price": 4.99, "category": "Breads", "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop"},
-    {"id": 24, "name": "Kulcha", "description": "Stuffed bread with spiced filling", "price": 5.99, "category": "Breads", "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop"},
+    {"id": 21, "name": "Hyderabadi Pulao", "description": "Fragrant rice cooked with whole spices and ghee", "price": 8.99, "category": "Rice", "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400&h=300&fit=crop&crop=center"},
+    {"id": 22, "name": "Roomali Roti", "description": "Paper-thin handkerchief bread, soft and delicate", "price": 3.99, "category": "Breads", "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop&crop=center"},
+    {"id": 23, "name": "Hyderabadi Naan", "description": "Soft leavened bread baked in tandoor", "price": 4.99, "category": "Breads", "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&h=300&fit=crop&crop=center"},
+    {"id": 24, "name": "Kulcha", "description": "Stuffed bread with spiced filling", "price": 5.99, "category": "Breads", "image": "https://images.unsplash.com/photo-1605386003751-b4ba9d2e9580?w=400&h=300&fit=crop&crop=center"},
 
     # Desserts
-    {"id": 25, "name": "Double Ka Meetha", "description": "Hyderabadi bread pudding with nuts and saffron", "price": 7.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"},
-    {"id": 26, "name": "Khubani Ka Meetha", "description": "Apricot dessert with cream, a Hyderabadi specialty", "price": 8.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop"},
-    {"id": 27, "name": "Sheer Khurma", "description": "Vermicelli pudding with dates and nuts", "price": 6.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop"},
-    {"id": 28, "name": "Qubani Ka Meetha with Ice Cream", "description": "Traditional apricot dessert served with vanilla ice cream", "price": 9.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"},
-    {"id": 29, "name": "Kulfi Falooda", "description": "Traditional Indian ice cream with vermicelli and rose syrup", "price": 7.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop"},
-    {"id": 30, "name": "Gulab Jamun", "description": "Soft milk dumplings in cardamom flavored syrup", "price": 5.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=300&fit=crop"},
+    {"id": 25, "name": "Double Ka Meetha", "description": "Hyderabadi bread pudding with nuts and saffron", "price": 7.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center"},
+    {"id": 26, "name": "Khubani Ka Meetha", "description": "Apricot dessert with cream, a Hyderabadi specialty", "price": 8.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop&crop=center"},
+    {"id": 27, "name": "Sheer Khurma", "description": "Vermicelli pudding with dates and nuts", "price": 6.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop&crop=center"},
+    {"id": 28, "name": "Qubani Ka Meetha with Ice Cream", "description": "Traditional apricot dessert served with vanilla ice cream", "price": 9.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop&crop=center"},
+    {"id": 29, "name": "Kulfi Falooda", "description": "Traditional Indian ice cream with vermicelli and rose syrup", "price": 7.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop&crop=center"},
+    {"id": 30, "name": "Gulab Jamun", "description": "Soft milk dumplings in cardamom flavored syrup", "price": 5.99, "category": "Desserts", "image": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=300&fit=crop&crop=center"},
 
     # Beverages
-    {"id": 31, "name": "Hyderabadi Chai", "description": "Traditional spiced tea with cardamom and ginger", "price": 2.99, "category": "Beverages", "image": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&h=300&fit=crop"},
-    {"id": 32, "name": "Lassi", "description": "Refreshing yogurt drink, sweet or salted", "price": 4.99, "category": "Beverages", "image": "https://images.unsplash.com/photo-1575667575008-cd1d3bb5b2da?w=400&h=300&fit=crop"},
-    {"id": 33, "name": "Fresh Lime Water", "description": "Refreshing lime juice with mint and spices", "price": 3.99, "category": "Beverages", "image": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&h=300&fit=crop"}
+    {"id": 31, "name": "Hyderabadi Chai", "description": "Traditional spiced tea with cardamom and ginger", "price": 2.99, "category": "Beverages", "image": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&h=300&fit=crop&crop=center"},
+    {"id": 32, "name": "Lassi", "description": "Refreshing yogurt drink, sweet or salted", "price": 4.99, "category": "Beverages", "image": "https://images.unsplash.com/photo-1575667575008-cd1d3bb5b2da?w=400&h=300&fit=crop&crop=center"},
+    {"id": 33, "name": "Fresh Lime Water", "description": "Refreshing lime juice with mint and spices", "price": 3.99, "category": "Beverages", "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400&h=300&fit=crop&crop=center"}
 ]
 
 def generate_verification_token():

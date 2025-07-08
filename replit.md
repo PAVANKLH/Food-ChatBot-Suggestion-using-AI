@@ -111,8 +111,30 @@ The application is configured for flexible deployment:
 - JavaScript interactivity for real-time price calculation
 - Database table creation and initialization
 
-## Changelog
-- July 08, 2025. Initial setup
+## Recent Changes & Completed Features
+
+### Latest Update - July 08, 2025
+✅ **Menu Expansion**: Added 33+ authentic Hyderabadi dishes with unique, high-quality images
+✅ **Enhanced Chatbot**: Ultra-prominent 80px glowing button with rotating border animation and "Ask Chef Pavan!" label
+✅ **AI Personality**: Chef Pavan asks about your mood first, then suggests dishes accordingly
+✅ **Visual Design**: Added spice-pattern backgrounds and biryani-themed sections
+✅ **All Functionality Working**: Registration, login, order placement, history tracking, and AI chatbot
+
+### Food Categories Added:
+- **Biryanis**: 5 varieties (Chicken, Mutton, Fish, Prawn, Vegetable)
+- **Non-Veg Classics**: Mutton Marag, Chicken Haleem, Keema Kaleji, Chicken Korma
+- **Kebabs & Tandoor**: Seekh, Shammi, Boti Kebabs, Chicken/Fish Tikka
+- **Vegetarian**: Paneer specialties, Dal Hyderabadi, Bagara Baingan
+- **Breads & Rice**: Roomali Roti, Naan, Kulcha, Pulao
+- **Desserts**: Double Ka Meetha, Khubani Ka Meetha, Kulfi Falooda, Gulab Jamun
+- **Beverages**: Hyderabadi Chai, Lassi, Fresh Lime Water
+
+### Technical Achievements:
+- 100% unique food images (no duplicates)
+- Mood-based AI food recommendations
+- Animated, highly visible chatbot interface
+- Professional Hyderabadi restaurant branding
+- Complete order management system
 
 ## User Preferences
 
