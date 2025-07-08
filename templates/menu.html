@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Menu - Food Ordering System{% endblock %}
+{% block title %}Menu - Pavan's Bawarchi{% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-12">
         <div class="text-center mb-4">
-            <h1 class="display-4 text-primary">
+            <h1 class="display-4 text-warning">
                 <i class="fas fa-utensils me-3"></i>
                 Our Delicious Menu
             </h1>
-            <p class="lead text-muted">Select your favorite items and place your order</p>
+            <p class="lead text-light-emphasis">Select your favorite items and place your order</p>
+            <p class="text-light-emphasis">
+                <i class="fas fa-robot me-2"></i>
+                Need help choosing? Try our AI food assistant!
+            </p>
         </div>
     </div>
 </div>
@@ -22,14 +26,19 @@
             <div class="row">
                 {% for item in menu_items %}
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card menu-item h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="card-title">{{ item.name }}</h5>
-                                <span class="badge bg-success fs-6">${{ "%.2f"|format(item.price) }}</span>
+                    <div class="card menu-item h-100 shadow-lg bg-secondary bg-opacity-25 border border-secondary">
+                        <div class="position-relative">
+                            <img src="{{ item.image }}" 
+                                 class="card-img-top" 
+                                 alt="{{ item.name }}"
+                                 style="height: 200px; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 m-2">
+                                <span class="badge bg-warning text-dark fs-6 fw-bold">${{ "%.2f"|format(item.price) }}</span>
                             </div>
-                            
-                            <p class="card-text text-muted small mb-3">{{ item.description }}</p>
+                        </div>
+                        <div class="card-body d-flex flex-column text-light">
+                            <h5 class="card-title text-warning">{{ item.name }}</h5>
+                            <p class="card-text text-light-emphasis small mb-3">{{ item.description }}</p>
                             
                             <div class="mt-auto">
                                 <div class="form-check mb-2">
@@ -39,29 +48,29 @@
                                            value="{{ item.id }}" 
                                            id="item{{ item.id }}"
                                            data-price="{{ item.price }}">
-                                    <label class="form-check-label fw-bold" for="item{{ item.id }}">
+                                    <label class="form-check-label fw-bold text-warning" for="item{{ item.id }}">
                                         Add to Order
                                     </label>
                                 </div>
                                 
                                 <div class="quantity-control" style="display: none;">
-                                    <label for="quantity_{{ item.id }}" class="form-label small">Quantity:</label>
+                                    <label for="quantity_{{ item.id }}" class="form-label small text-light">Quantity:</label>
                                     <div class="input-group input-group-sm">
-                                        <button class="btn btn-outline-secondary quantity-btn" 
+                                        <button class="btn btn-outline-warning quantity-btn" 
                                                 type="button" 
                                                 data-action="decrease" 
                                                 data-target="quantity_{{ item.id }}">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                         <input type="number" 
-                                               class="form-control text-center quantity-input" 
+                                               class="form-control text-center quantity-input bg-dark text-light border-warning" 
                                                name="quantity_{{ item.id }}" 
                                                id="quantity_{{ item.id }}" 
                                                min="1" 
                                                value="1"
                                                data-item-id="{{ item.id }}"
                                                data-price="{{ item.price }}">
-                                        <button class="btn btn-outline-secondary quantity-btn" 
+                                        <button class="btn btn-outline-warning quantity-btn" 
                                                 type="button" 
                                                 data-action="increase" 
                                                 data-target="quantity_{{ item.id }}">
@@ -79,31 +88,31 @@
         
         <!-- Order Summary -->
         <div class="col-lg-4">
-            <div class="card order-summary shadow sticky-top" style="top: 20px;">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">
+            <div class="card order-summary shadow-lg sticky-top bg-secondary bg-opacity-25 border border-warning" style="top: 20px;">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0 fw-bold">
                         <i class="fas fa-shopping-cart me-2"></i>
                         Order Summary
                     </h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body text-light">
                     <div id="orderItems">
-                        <div class="text-center text-muted py-3">
+                        <div class="text-center text-light-emphasis py-3">
                             <i class="fas fa-shopping-cart fa-2x mb-2"></i>
                             <p>No items selected</p>
                         </div>
                     </div>
                     
-                    <hr>
+                    <hr class="border-secondary">
                     
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <strong>Total:</strong>
-                        <span id="totalAmount" class="fs-4 text-success fw-bold">$0.00</span>
+                        <strong class="text-light">Total:</strong>
+                        <span id="totalAmount" class="fs-4 text-warning fw-bold">$0.00</span>
                     </div>
                     
                     <button type="submit" 
                             id="placeOrderBtn" 
-                            class="btn btn-success w-100" 
+                            class="btn btn-warning w-100 fw-bold" 
                             disabled>
                         <i class="fas fa-check me-2"></i>
                         Place Order

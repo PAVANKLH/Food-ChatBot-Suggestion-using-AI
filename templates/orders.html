@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}Order History - Food Ordering System{% endblock %}
+{% block title %}Order History - Pavan's Bawarchi{% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-12">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h1 class="display-5 text-primary">
+                <h1 class="display-5 text-warning">
                     <i class="fas fa-history me-3"></i>
                     Order History
                 </h1>
-                <p class="text-muted">View all your past orders</p>
+                <p class="text-light-emphasis">View all your past orders</p>
             </div>
-            <a href="{{ url_for('menu') }}" class="btn btn-primary">
+            <a href="{{ url_for('menu') }}" class="btn btn-warning">
                 <i class="fas fa-plus me-2"></i>
                 New Order
             </a>
@@ -23,17 +23,17 @@
 
 {% if orders_with_items %}
     {% for order_data in orders_with_items %}
-    <div class="card mb-4 shadow-sm">
-        <div class="card-header bg-light">
+    <div class="card mb-4 shadow-lg bg-secondary bg-opacity-25 border border-secondary">
+        <div class="card-header bg-warning text-dark">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h5 class="mb-0">
-                        <i class="fas fa-receipt me-2 text-primary"></i>
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-receipt me-2"></i>
                         Order #{{ order_data.order.id }}
                     </h5>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <small class="text-muted">
+                    <small class="fw-bold">
                         <i class="fas fa-calendar me-1"></i>
                         {{ order_data.order.order_date.strftime('%B %d, %Y at %I:%M %p') }}
                     </small>
@@ -41,22 +41,22 @@
             </div>
         </div>
         
-        <div class="card-body">
+        <div class="card-body text-light">
             <div class="row">
                 <div class="col-md-8">
-                    <h6 class="text-muted mb-3">Order Items:</h6>
+                    <h6 class="text-warning mb-3">Order Items:</h6>
                     
                     {% for item in order_data.items %}
-                    <div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded">
+                    <div class="d-flex justify-content-between align-items-center mb-2 p-3 bg-dark bg-opacity-50 rounded border border-secondary">
                         <div>
-                            <strong>{{ item.item_name }}</strong>
-                            <span class="text-muted">× {{ item.quantity }}</span>
+                            <strong class="text-light">{{ item.item_name }}</strong>
+                            <span class="text-light-emphasis">× {{ item.quantity }}</span>
                         </div>
                         <div class="text-end">
-                            <div class="text-muted small">
+                            <div class="text-light-emphasis small">
                                 ${{ "%.2f"|format(item.item_price) }} each
                             </div>
-                            <div class="fw-bold">
+                            <div class="fw-bold text-warning">
                                 ${{ "%.2f"|format(item.total_price) }}
                             </div>
                         </div>
@@ -65,10 +65,10 @@
                 </div>
                 
                 <div class="col-md-4">
-                    <div class="border rounded p-3 bg-success bg-opacity-10">
+                    <div class="border border-warning rounded p-3 bg-warning bg-opacity-10">
                         <div class="text-center">
-                            <h6 class="text-muted mb-1">Order Total</h6>
-                            <h4 class="text-success mb-0">
+                            <h6 class="text-light-emphasis mb-1">Order Total</h6>
+                            <h4 class="text-warning mb-0 fw-bold">
                                 ${{ "%.2f"|format(order_data.order.total_amount) }}
                             </h4>
                         </div>
@@ -79,12 +79,12 @@
     </div>
     {% endfor %}
 {% else %}
-    <div class="card">
-        <div class="card-body text-center py-5">
-            <i class="fas fa-shopping-cart fa-4x text-muted mb-3"></i>
-            <h4 class="text-muted">No Orders Yet</h4>
-            <p class="text-muted mb-4">You haven't placed any orders yet. Start browsing our delicious menu!</p>
-            <a href="{{ url_for('menu') }}" class="btn btn-primary btn-lg">
+    <div class="card bg-secondary bg-opacity-25 border border-secondary">
+        <div class="card-body text-center py-5 text-light">
+            <i class="fas fa-shopping-cart fa-4x text-light-emphasis mb-3"></i>
+            <h4 class="text-light">No Orders Yet</h4>
+            <p class="text-light-emphasis mb-4">You haven't placed any orders yet. Start browsing our delicious menu!</p>
+            <a href="{{ url_for('menu') }}" class="btn btn-warning btn-lg">
                 <i class="fas fa-utensils me-2"></i>
                 Browse Menu
             </a>

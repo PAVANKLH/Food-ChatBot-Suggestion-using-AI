@@ -127,10 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="order-item fade-in">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <strong>${item.name}</strong>
-                                <div class="text-muted small">$${item.price.toFixed(2)} × ${item.quantity}</div>
+                                <strong class="text-light">${item.name}</strong>
+                                <div class="text-light-emphasis small">$${item.price.toFixed(2)} × ${item.quantity}</div>
                             </div>
-                            <div class="fw-bold text-success">
+                            <div class="fw-bold text-warning">
                                 $${item.total.toFixed(2)}
                             </div>
                         </div>
@@ -210,11 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
         checkbox.addEventListener('change', function() {
             const card = this.closest('.card');
             if (this.checked) {
-                card.classList.add('border-success');
+                card.classList.add('border-warning');
                 card.style.borderWidth = '2px';
+                card.style.boxShadow = '0 4px 15px rgba(255, 193, 7, 0.3)';
             } else {
-                card.classList.remove('border-success');
+                card.classList.remove('border-warning');
                 card.style.borderWidth = '';
+                card.style.boxShadow = '';
             }
         });
     });

@@ -1,17 +1,19 @@
-# Food Ordering System
+# Pavan's Bawarchi - Food Ordering System
 
 ## Overview
 
-This is a Flask-based web application for a food ordering system that allows users to browse a menu, select items, and place orders. The application features a clean, responsive interface built with Bootstrap and includes order history tracking functionality.
+This is a comprehensive Flask-based web application for Pavan's Bawarchi restaurant featuring user authentication, AI-powered food recommendations, and a complete ordering system. The application uses a dark theme with gold accents and includes modern features like real-time chat assistance and responsive design.
 
 ## System Architecture
 
-The application follows a traditional Model-View-Controller (MVC) architecture pattern:
+The application follows a modern full-stack architecture with the following components:
 
-- **Backend**: Flask web framework with SQLAlchemy ORM
-- **Frontend**: Server-side rendered HTML templates with Bootstrap 5 for styling
-- **Database**: SQLite for development (configurable to other databases via environment variables)
-- **Static Assets**: CSS and JavaScript files for enhanced user experience
+- **Backend**: Flask web framework with SQLAlchemy ORM and Flask-Login for authentication
+- **Frontend**: Server-side rendered HTML templates with Bootstrap 5 and custom dark theme styling
+- **Database**: PostgreSQL for production with SQLite fallback for development
+- **AI Integration**: Google Gemini AI for intelligent food recommendations
+- **Authentication**: Complete user registration and login system with session management
+- **Real-time Features**: AI-powered chatbot for food suggestions
 
 ## Key Components
 

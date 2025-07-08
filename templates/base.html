@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Food Ordering System{% endblock %}</title>
+    <title>{% block title %}Pavan's Bawarchi{% endblock %}</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,13 +14,16 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
+<body class="bg-dark text-light">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('menu') }}">
-                <i class="fas fa-utensils me-2"></i>
-                FoodOrder
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('menu') if current_user.is_authenticated else url_for('index') }}">
+                <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=40&h=40&fit=crop&crop=face" 
+                     alt="Chef Pavan" 
+                     class="rounded-circle me-2" 
+                     style="width: 40px; height: 40px; object-fit: cover;">
+                <span class="text-warning fw-bold">Pavan's Bawarchi</span>
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -29,22 +32,58 @@
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('menu') }}">
-                            <i class="fas fa-home me-1"></i>
-                            Menu
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('orders') }}">
-                            <i class="fas fa-history me-1"></i>
-                            Order History
-                        </a>
-                    </li>
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('menu') }}">
+                                <i class="fas fa-utensils me-1"></i>
+                                Menu
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('orders') }}">
+                                <i class="fas fa-history me-1"></i>
+                                Order History
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-user me-1"></i>
+                                {{ current_user.first_name }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark bg-secondary">
+                                <li><a class="dropdown-item" href="{{ url_for('logout') }}">
+                                    <i class="fas fa-sign-out-alt me-1"></i>
+                                    Logout
+                                </a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">
+                                <i class="fas fa-sign-in-alt me-1"></i>
+                                Sign In
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('register') }}">
+                                <i class="fas fa-user-plus me-1"></i>
+                                Sign Up
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- AI Chatbot Button -->
+    {% if current_user.is_authenticated %}
+    <div class="chatbot-toggle position-fixed" style="bottom: 30px; right: 30px; z-index: 1050;">
+        <button class="btn btn-warning rounded-circle p-3 shadow-lg" id="chatbotToggle" data-bs-toggle="modal" data-bs-target="#chatbotModal">
+            <i class="fas fa-robot fa-lg"></i>
+        </button>
+    </div>
+    {% endif %}
 
     <!-- Flash Messages -->
     <div class="container mt-3">
@@ -65,10 +104,51 @@
         {% block content %}{% endblock %}
     </main>
 
+    <!-- AI Chatbot Modal -->
+    {% if current_user.is_authenticated %}
+    <div class="modal fade" id="chatbotModal" tabindex="-1" aria-labelledby="chatbotModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-light border border-warning">
+                <div class="modal-header border-bottom border-warning">
+                    <h5 class="modal-title text-warning" id="chatbotModalLabel">
+                        <i class="fas fa-robot me-2"></i>
+                        Chef's AI Assistant
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="chatMessages" class="chat-messages mb-3" style="height: 400px; overflow-y: auto;">
+                        <div class="message bot-message mb-3">
+                            <div class="d-flex align-items-start">
+                                <div class="avatar bg-warning text-dark rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; min-width: 40px;">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <div class="bg-secondary bg-opacity-50 rounded p-3">
+                                        <p class="mb-0">Hello! I'm your personal food assistant. I can help you find the perfect dish based on your preferences, dietary needs, or mood. What are you in the mood for today?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-secondary text-light border-warning" id="chatInput" placeholder="Ask me about food recommendations...">
+                            <button class="btn btn-warning" type="button" id="sendMessage">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
     <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
+    <footer class="bg-black text-light py-4 mt-5 border-top border-warning">
         <div class="container text-center">
-            <p>&copy; 2025 FoodOrder System. Made with <i class="fas fa-heart text-danger"></i></p>
+            <p class="mb-0">&copy; 2025 Pavan's Bawarchi. Made with <i class="fas fa-heart text-danger"></i> for food lovers.</p>
         </div>
     </footer>
 
@@ -77,5 +157,108 @@
     
     <!-- Custom JavaScript -->
     {% block scripts %}{% endblock %}
+    
+    <!-- Chatbot JavaScript -->
+    {% if current_user.is_authenticated %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatInput = document.getElementById('chatInput');
+            const sendButton = document.getElementById('sendMessage');
+            const chatMessages = document.getElementById('chatMessages');
+
+            function addMessage(content, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'} mb-3`;
+                
+                if (isUser) {
+                    messageDiv.innerHTML = `
+                        <div class="d-flex align-items-start justify-content-end">
+                            <div class="message-content me-3">
+                                <div class="bg-warning text-dark rounded p-3">
+                                    <p class="mb-0">${content}</p>
+                                </div>
+                            </div>
+                            <div class="avatar bg-secondary text-light rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; min-width: 40px;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    messageDiv.innerHTML = `
+                        <div class="d-flex align-items-start">
+                            <div class="avatar bg-warning text-dark rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; min-width: 40px;">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <div class="bg-secondary bg-opacity-50 rounded p-3">
+                                    <p class="mb-0">${content}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                // Add loading indicator
+                const loadingDiv = document.createElement('div');
+                loadingDiv.className = 'message bot-message mb-3 loading-message';
+                loadingDiv.innerHTML = `
+                    <div class="d-flex align-items-start">
+                        <div class="avatar bg-warning text-dark rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; min-width: 40px;">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <div class="bg-secondary bg-opacity-50 rounded p-3">
+                                <p class="mb-0">
+                                    <i class="fas fa-spinner fa-spin me-2"></i>
+                                    Thinking...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                chatMessages.appendChild(loadingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Send to backend
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Remove loading indicator
+                    loadingDiv.remove();
+                    addMessage(data.response || 'Sorry, I had trouble understanding that. Could you try again?');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    loadingDiv.remove();
+                    addMessage('Sorry, I\'m having technical difficulties. Please try again later.');
+                });
+            }
+
+            sendButton.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+    {% endif %}
 </body>
 </html>
